@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Optional: Sets how far down an anchor link stops, saving room for your fixed navbar */
+html {
+  scroll-padding-top: 5rem; /* Matches your h-20 navbar height */
+}

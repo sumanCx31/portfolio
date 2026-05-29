@@ -1,5 +1,6 @@
-import React from 'react';
-import { type  Variants } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { type Variants } from 'framer-motion';
+import Lenis from 'lenis';
 
 // Layout Structural Core Sections
 import BackgroundGrid from './components/BackgroundGrid';
@@ -11,6 +12,7 @@ import Education from './components/Educatio';
 import Contact from './components/Contact';
 
 import "./assets/style/index.css";
+import TrainingExperience from './components/training';
 
 // Shared Animation Keyframes Configuration
 const fadeUp: Variants = {
@@ -31,8 +33,35 @@ const staggerContainer: Variants = {
 };
 
 export default function App(): React.JSX.Element {
+  
+  // Initialize Lenis Smooth Scroll
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom cinematic ease-out curve
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+    });
+
+    // Synchronize Framer Motion & RAF loop with Lenis calculations
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Clean up on unmount
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className="text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen relative antialiased">
+    <div className="text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen relative antialiased bg-slate-950">
       <BackgroundGrid />
       <Navbar />
 
@@ -40,7 +69,8 @@ export default function App(): React.JSX.Element {
         <Hero fadeUp={fadeUp} staggerContainer={staggerContainer} />
         <Skills />
         <Experience />
-        <Education fadeUp={fadeUp} />
+        <TrainingExperience/>
+        <Education />
         <Contact />
       </main>
 

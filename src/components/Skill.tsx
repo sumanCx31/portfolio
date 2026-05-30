@@ -10,16 +10,16 @@ import {
   Layers 
 } from "lucide-react";
 
-// --- STRUCTURING EXPERTISE MATRIX ---
+
 interface Skill {
   name: string;
-  level: number; // Percentage value
+  level: number; 
 }
 
 interface SkillCategory {
   title: string;
   icon: React.ReactNode;
-  accentColor: string; // Used for customized glowing drops and bar charts
+  accentColor: string; 
   skills: Skill[];
 }
 
@@ -67,7 +67,6 @@ const skillsData: SkillCategory[] = [
   },
 ];
 
-// --- ADVANCED SPRING ANIMATION PROTOCOLS ---
 const sectionContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -97,19 +96,15 @@ const skillBarGrow = (targetLevel: number): Variants => ({
 export default function TechSkills(): React.JSX.Element {
   return (
     <section id="skills" className="relative bg-slate-950 text-slate-100 font-sans antialiased px-6 py-28 overflow-hidden min-h-screen flex flex-col justify-center">
-      
-      {/* 1. Abstract Floating Mesh Canvas Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Technical Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_60%,transparent_100%)] opacity-40" />
-        {/* Dynamic Multi-Stop Neon Fluid Orbs */}
+        
         <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[140px] animate-pulse pointer-events-none" />
         <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl w-full mx-auto space-y-16">
-        
-        {/* 2. Section Header Sequence */}
+     
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -128,7 +123,6 @@ export default function TechSkills(): React.JSX.Element {
           </p>
         </motion.div>
 
-        {/* 3. Responsive Asymmetric Bento Layout */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -147,10 +141,8 @@ export default function TechSkills(): React.JSX.Element {
               }}
               className="group relative rounded-2xl border border-slate-800/80 bg-slate-900/20 backdrop-blur-xl p-6 sm:p-8 transition-all duration-300"
             >
-              {/* Dynamic Overlay Box Shadow Accent */}
+              
               <div className={`absolute -inset-px rounded-2xl bg-gradient-to-br ${cat.accentColor} opacity-0 group-hover:opacity-10 blur-md transition-all duration-500 pointer-events-none`} />
-
-              {/* Category Title Header */}
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-800/60 relative z-10">
                 <div className="flex items-center gap-3">
                   <div className={`p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-300 group-hover:text-cyan-400 transition-colors`}>
@@ -165,12 +157,10 @@ export default function TechSkills(): React.JSX.Element {
                 </span>
               </div>
 
-              {/* Skill Node Execution Slats */}
               <div className="space-y-5 relative z-10">
                 {cat.skills.map((skill) => (
                   <div key={skill.name} className="space-y-1.5">
                     
-                    {/* Labels */}
                     <div className="flex justify-between items-center text-xs sm:text-sm">
                       <span className="font-semibold text-slate-300 group-hover:text-slate-200 transition-colors">
                         {skill.name}
@@ -180,7 +170,6 @@ export default function TechSkills(): React.JSX.Element {
                       </span>
                     </div>
 
-                    {/* Progress Engine Layout track */}
                     <div className="h-2 w-full bg-slate-950 border border-slate-900/60 rounded-full overflow-hidden relative shadow-inner">
                       <motion.div
                         initial="hidden"
@@ -189,7 +178,6 @@ export default function TechSkills(): React.JSX.Element {
                         variants={skillBarGrow(skill.level)}
                         className={`absolute left-0 top-0 h-full rounded-full bg-gradient-to-r ${cat.accentColor} relative`}
                       >
-                        {/* Interactive Sparkle Glow Cap on Progress Finish */}
                         <span className="absolute right-0 top-0 h-full w-2 bg-white blur-[2px] opacity-40 animate-pulse" />
                       </motion.div>
                     </div>
@@ -202,7 +190,7 @@ export default function TechSkills(): React.JSX.Element {
           ))}
         </motion.div>
 
-        {/* 4. Minimal System Status Banner Footer */}
+       
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

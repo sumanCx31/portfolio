@@ -7,7 +7,6 @@ export default function Navbar(): React.JSX.Element {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Monitor viewport scroll transitions to toggle dock scaling states
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -27,7 +26,7 @@ export default function Navbar(): React.JSX.Element {
     { name: "Education", href: "#education" },
   ];
 
-  // Intercepts the click to ensure Lenis smooth-scrolling fires flawlessly
+
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false); // Close mobile menu if open
@@ -36,14 +35,13 @@ export default function Navbar(): React.JSX.Element {
     const element = document.getElementById(targetId);
 
     if (element) {
-      // Calculate position offset to account for the floating header
+      
       const offset = isScrolled ? 90 : 110; 
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
       const offsetPosition = elementPosition - offset;
 
-      // Fires global native scroll handled cleanly by your Lenis RAF loop
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth"
@@ -70,7 +68,7 @@ export default function Navbar(): React.JSX.Element {
               : "border-b border-slate-900 bg-transparent backdrop-blur-0"
           }`}
         >
-          {/* LOGO ENDPOINT MATRIX LINK */}
+          
           <a 
             href="#" 
             onClick={(e) => {
@@ -86,8 +84,6 @@ export default function Navbar(): React.JSX.Element {
               S<span className="text-cyan-400">.</span>SAH
             </span>
           </a>
-
-          {/* DESKTOP CORE NAVIGATION STACK */}
           <div className="hidden md:flex items-center space-x-2 text-[11px] uppercase font-mono font-bold tracking-widest text-slate-400">
             {navLinks.map((link, idx) => (
               <a
@@ -98,7 +94,6 @@ export default function Navbar(): React.JSX.Element {
                 onMouseLeave={() => setHoveredIndex(null)}
                 className="relative px-4 py-2 text-slate-400 hover:text-slate-100 transition-colors rounded-lg duration-300"
               >
-                {/* Micro Sliding Background Track Pill Overlay */}
                 {hoveredIndex === idx && (
                   <motion.span
                     layoutId="navbarHoverHighlight"
@@ -113,7 +108,6 @@ export default function Navbar(): React.JSX.Element {
               </a>
             ))}
 
-            {/* CTAs Terminal Action Trigger */}
             <div className="pl-4">
               <motion.a
                 whileHover={{ scale: 1.02, y: -1 }}
@@ -128,7 +122,6 @@ export default function Navbar(): React.JSX.Element {
             </div>
           </div>
 
-          {/* MOBILE TOGGLE INTERFACE */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 bg-slate-900 border border-slate-800 text-slate-300 hover:text-slate-100 rounded-xl transition-all relative z-50"
@@ -139,7 +132,6 @@ export default function Navbar(): React.JSX.Element {
         </motion.nav>
       </header>
 
-      {/* MOBILE FULLSCREEN LAYER DROPDOWN OVERLAY */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div

@@ -1,7 +1,6 @@
 import React, {type ReactNode } from 'react';
 import { motion, type Variants } from 'framer-motion';
 
-// Explicitly typing the Framer Motion configuration variants
 const transitionVariants: Variants = {
   hidden: { 
     opacity: 0, 
@@ -12,7 +11,7 @@ const transitionVariants: Variants = {
     y: 0,
     transition: { 
       duration: 0.6, 
-      ease: [0.22, 1, 0.36, 1] // Snappy cubic-bezier curve
+      ease: [0.22, 1, 0.36, 1] 
     }
   },
   exit: { 

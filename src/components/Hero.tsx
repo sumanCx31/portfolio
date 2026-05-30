@@ -3,13 +3,13 @@ import { motion, useMotionValue, useSpring, useTransform, type Variants } from "
 import profileImage from "../assets/profile.jpg";
 import "./../assets/style/index.css";
 import { ArrowUpRight, Terminal, Sparkles, Binary, Check } from "lucide-react";
+import Bio from "../section/bio";
 
 interface HeroProps {
   fadeUp: Variants;
   staggerContainer: Variants;
 }
 
-// Stagger sequence for character loops
 const charContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -31,15 +31,12 @@ const individualChar: Variants = {
 export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX.Element {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // 3D Parallax Mouse Tracking Channels
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  // Smooth out coordinate tracking using dampening spring physics
   const springX = useSpring(mouseX, { stiffness: 90, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 90, damping: 20 });
 
-  // Map coordinate planes to degree rotations
   const rotateX = useTransform(springY, [-0.5, 0.5], [15, -15]);
   const rotateY = useTransform(springX, [-0.5, 0.5], [-15, 15]);
 
@@ -48,8 +45,7 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
     const rect = cardRef.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
-    
-    // Normalize coordinates around zero system origin [-0.5 to 0.5]
+
     const currentX = (e.clientX - rect.left) / width - 0.5;
     const currentY = (e.clientY - rect.top) / height - 0.5;
     
@@ -68,7 +64,7 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
       {/* Background Matrix Mesh & Fluid Light Bleeds */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-50" />
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-[160px] animate-pulse" />
+        <div className="absolute top-1/4 left-1/4 w-125 h-[500px] bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full blur-[160px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-to-bl from-indigo-500/10 to-transparent rounded-full blur-[140px] [animation-duration:8s] animate-pulse" />
       </div>
 
@@ -90,9 +86,6 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent flex items-center gap-1.5 font-mono text-[11px] tracking-wide">
-              <Terminal className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-6 transition-transform" /> system_status: active_for_roles
             </span>
           </motion.div>
           
@@ -121,7 +114,6 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
               <Binary className="w-5 h-5 text-indigo-400 shrink-0" />
               <div className="relative flex items-center text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
                 Full-Stack MERN Developer
-                {/* Active blinking cursor engine */}
                 <span className="w-2 h-6 md:h-8 ml-1.5 bg-indigo-400 animate-[ping_1.2s_infinite] inline-block shrink-0" />
               </div>
             </motion.div>
@@ -132,7 +124,7 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
             variants={fadeUp} 
             className="text-slate-400 text-base md:text-lg leading-relaxed max-w-xl font-medium"
           >
-            BSc. CSIT candidate architecture specialized in engineering high-velocity <span className="text-slate-200 font-semibold border-b border-cyan-500/30 pb-0.5">MERN stack</span> applications. I structure decoupled state routines, secure stateless token authentication loops, and event-driven data systems designed to run smoothly under production workflows.
+           <Bio />
           </motion.p>
 
           {/* Embedded Technical Metrics */}

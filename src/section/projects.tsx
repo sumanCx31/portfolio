@@ -1,6 +1,18 @@
 import { Bus, MessageSquare, ShoppingBag } from "lucide-react";
+interface Project {
+  id: string;
+  title: string;
+  category: "Full-Stack" | "Real-Time" | "System-Design";
+  description: string;
+  tech: string[];
+  github: string;
+  demo: string;
+  metric: string;
+  icon: React.ReactNode;
+  bgGradient: string;
+}
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     id: "kinmelnow",
     title: "KinmelNow – MERN E-Commerce",

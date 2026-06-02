@@ -47,8 +47,8 @@ export default function ProjectShowcase(): React.JSX.Element {
       
       {/* Structural Blueprint Mesh Canvas Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] animate-pulse pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-blue-500/5 rounded-full blur-[150px] animate-pulse pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-6xl w-full mx-auto space-y-12">
@@ -92,7 +92,7 @@ export default function ProjectShowcase(): React.JSX.Element {
                 {activeFilter === cat.id && (
                   <motion.div 
                     layoutId="activeFilterTab"
-                    className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg z-0"
+                    className="absolute inset-0 bg-linear-to-r from-cyan-400 to-blue-500 rounded-lg z-0"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -127,13 +127,13 @@ export default function ProjectShowcase(): React.JSX.Element {
                 className="group relative flex flex-col justify-between h-full rounded-2xl border border-slate-900 bg-slate-900/20 backdrop-blur-xl overflow-hidden transition-colors duration-300 shadow-xl shadow-slate-950/40"
               >
                 {/* Micro Ambient Glow Drop backdrop */}
-                <div className={`absolute inset-0 bg-gradient-to-b ${project.bgGradient} opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0`} />
+                <div className={`absolute inset-0 bg-linear-to-b ${project.bgGradient} opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0`} />
 
                 {/* Top Interactive Blueprint Box Cover (Replaces raw screen mockups) */}
                 <div className="p-6 pb-0 relative z-10">
                   <div className="w-full h-40 rounded-xl bg-slate-950/80 border border-slate-900/80 flex flex-col justify-center items-center relative overflow-hidden group-hover:border-slate-800/60 transition-colors duration-300">
                     {/* Abstract grid lines inside the thumbnail box */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-10" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[1rem_1rem] opacity-10" />
                     
                     {/* Floating Component Wireframe Accents */}
                     <div className="w-4/5 space-y-2 opacity-20 group-hover:opacity-40 group-hover:scale-[1.02] transition-all duration-500 ease-out">
@@ -149,7 +149,7 @@ export default function ProjectShowcase(): React.JSX.Element {
                 </div>
 
                 {/* Content Block Details */}
-                <div className="p-6 space-y-4 relative z-10 flex-grow flex flex-col justify-between">
+                <div className="p-6 space-y-4 relative z-10 grow flex flex-col justify-between">
                   <div className="space-y-2">
                     <h3 className="text-xl font-bold tracking-tight text-slate-100 group-hover:text-white transition-colors">
                       {project.title}
@@ -191,7 +191,7 @@ export default function ProjectShowcase(): React.JSX.Element {
                     </a>
                     <a 
                       href={project.demo} 
-                      className="inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg hover:opacity-95 shadow-md shadow-cyan-500/5 transition-opacity"
+                      className="inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-slate-950 bg-linear-to-r from-cyan-400 to-blue-500 rounded-lg hover:opacity-95 shadow-md shadow-cyan-500/5 transition-opacity"
                       title="Launch Web Infrastructure"
                     >
                       Deploy App <ArrowUpRight className="w-3.5 h-3.5" />

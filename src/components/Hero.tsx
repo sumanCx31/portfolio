@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
 import profileImage from "../assets/profile.jpg";
 import "./../assets/style/index.css";
-import { ArrowUpRight, Terminal, Sparkles, Binary, Check } from "lucide-react";
+import { ArrowUpRight,Binary } from "lucide-react";
 import Bio from "../section/bio";
 
 interface HeroProps {
@@ -127,25 +127,6 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
            <Bio />
           </motion.p>
 
-          {/* Embedded Technical Metrics */}
-          <motion.div 
-            variants={fadeUp}
-            className="grid grid-cols-2 gap-4 w-full max-w-md pt-2 border-t border-slate-900"
-          >
-            <div className="space-y-1">
-              <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-cyan-400" /> UI Layers
-              </div>
-              <p className="text-sm font-semibold text-slate-300">Asynchronous / Modular</p>
-            </div>
-            <div className="space-y-1">
-              <div className="text-xs font-mono font-bold text-slate-500 uppercase tracking-widest flex items-center gap-1">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> State Engine
-              </div>
-              <p className="text-sm font-semibold text-slate-300">Atomic / Real-Time Link</p>
-            </div>
-          </motion.div>
-
           {/* Call to Action Interactive Links */}
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4 pt-4 w-full">
             <motion.a 
@@ -175,17 +156,17 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="md:col-span-5 flex justify-center items-center relative [perspective:1000px]"
+          className="md:col-span-5 flex justify-center items-center relative perspective-[1000px]"
         >
           <motion.div 
             ref={cardRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             style={{ rotateX, rotateY }}
-            className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-[25rem] md:h-[25rem] cursor-crosshair transition-all duration-200 ease-out"
+            className="relative group w-72 h-72 sm:w-80 sm:h-80 md:w-100 md:h-100 cursor-crosshair transition-all duration-200 ease-out"
           >
             {/* Immersive Glowing Aura Backing */}
-            <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-cyan-400 via-blue-500 to-indigo-500 opacity-20 group-hover:opacity-40 blur-2xl transition-opacity duration-700 pointer-events-none" />
+            <div className="absolute -inset-1.5 rounded-3xl bg-linear-to-tr from-cyan-400 via-blue-500 to-indigo-500 opacity-20 group-hover:opacity-40 blur-2xl transition-opacity duration-700 pointer-events-none" />
             
             {/* Abstract Floating Blueprint Frames */}
             <div className="absolute top-6 -left-6 w-full h-full rounded-2xl border border-dashed border-slate-800/80 pointer-events-none transform group-hover:translate-x-5 group-hover:translate-y-5 group-hover:border-indigo-500/20 transition-all duration-500 ease-out z-0" />
@@ -199,17 +180,10 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
                   alt="Sunil Kumar Sah"
                   className="w-full h-full object-cover brightness-[0.80] contrast-[1.05] grayscale group-hover:grayscale-0 group-hover:scale-[1.04] group-hover:brightness-100 transition-all duration-700 ease-out" 
                 />
-                
-                {/* Visual Glass Lighting Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/10 via-transparent to-indigo-500/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 mix-blend-overlay" />
-              </div>
-            </div>
 
-            {/* Float Monitor Data Callout Tag */}
-            <div className="absolute -bottom-4 -right-4 bg-slate-900/95 border border-slate-800/80 px-3.5 py-2.5 rounded-xl backdrop-blur-xl opacity-0 group-hover:opacity-100 transform translate-y-3 group-hover:translate-y-0 transition-all duration-300 pointer-events-none hidden sm:block shadow-2xl z-20">
-              <p className="text-[9px] font-mono tracking-widest text-cyan-400 uppercase font-black">Runtime Matrix</p>
-              <p className="text-xs font-semibold text-slate-200 mt-0.5">Fully Compiled</p>
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/10 to-transparent opacity-90 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-linear-to-tr from-cyan-500/10 via-transparent to-indigo-500/10 opacity-100 group-hover:opacity-0 transition-opacity duration-500 mix-blend-overlay" />
+              </div>
             </div>
 
           </motion.div>

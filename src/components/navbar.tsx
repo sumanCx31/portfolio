@@ -81,7 +81,7 @@ export default function Navbar(): React.JSX.Element {
               <Code2 className="w-4 h-4 text-cyan-400 group-hover:rotate-12 transition-transform" />
             </div>
             <span className="text-xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 font-sans">
-              S<span className="text-cyan-400">.</span>SAH
+              S<span className="text-cyan-400"></span>KS
             </span>
           </a>
           <div className="hidden md:flex items-center space-x-2 text-[11px] uppercase font-mono font-bold tracking-widest text-slate-400">

@@ -43,8 +43,8 @@ export default function ContactHubSection(): React.JSX.Element {
     {
       name: "LinkedIn",
       platform: "Professional Network",
-      handle: "sunilsah-dev",
-      href: "https://linkedin.com",
+      handle: "sunil-sah-156bb0406",
+      href: "https://www.linkedin.com/in/sunil-sah-156bb0406/",
       icon: <ExternalLink className="w-5 h-5" />,
       color: "border-blue-500/20 text-blue-400 bg-blue-500/5 hover:border-blue-400",
       glow: "from-blue-500/20 to-transparent"
@@ -52,8 +52,8 @@ export default function ContactHubSection(): React.JSX.Element {
     {
       name: "GitHub",
       platform: "Source Controls",
-      handle: "sunil-sah",
-      href: "https://github.com",
+      handle: "sumanCx31",
+      href: "https://github.com/sumanCx31",
       icon: <ExternalLink className="w-5 h-5" />, 
       color: "border-slate-700 text-slate-200 bg-slate-800/20 hover:border-slate-500",
       glow: "from-slate-500/10 to-transparent"
@@ -61,8 +61,8 @@ export default function ContactHubSection(): React.JSX.Element {
     {
       name: "Instagram",
       platform: "Media & Lifestyle",
-      handle: "@sunilsah_",
-      href: "https://instagram.com",
+      handle: "@sumnhere_",
+      href: "https://www.instagram.com/sumnhere_/?__pwa=1",
       icon: <ExternalLink className="w-5 h-5" />, 
       color: "border-pink-500/20 text-pink-400 bg-pink-500/5 hover:border-pink-400",
       glow: "from-pink-500/20 to-transparent"
@@ -70,8 +70,8 @@ export default function ContactHubSection(): React.JSX.Element {
     {
       name: "Facebook",
       platform: "Social Graph",
-      handle: "sunil.sah.official",
-      href: "https://facebook.com",
+      handle: "suman",
+      href: "https://www.facebook.com/sumansah46",
       icon: <ExternalLink className="w-5 h-5" />, 
       color: "border-indigo-500/20 text-indigo-400 bg-indigo-500/5 hover:border-indigo-400",
       glow: "from-indigo-500/20 to-transparent"

@@ -17,11 +17,11 @@ const projectsData: Project[] = [
     id: "kinmelnow",
     title: "KinmelNow – MERN E-Commerce",
     category: "Full-Stack",
-    description: "A secure, production-grade e-commerce engine featuring granular JWT user sessions, active inventory mutation tracks, custom admin analytics dashboards, and automated Stripe gateway checkout processing workflows.",
+    description: "A secure, production-grade e-commerce engine featuring granular JWT user sessions,  custom admin analytics dashboards, and automated Stripe gateway checkout processing workflows.",
     tech: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "Tailwind CSS", "Stripe API"],
     github: "#",
     demo: "#",
-    metric: "Integrated Webhooks & Secure Checkout",
+    metric: "Secure payment & Checkout",
     icon: <ShoppingBag className="w-5 h-5" />,
     bgGradient: "from-cyan-500/10 via-blue-500/5 to-transparent"
   },

@@ -135,7 +135,7 @@ export default function EducationSection(): React.JSX.Element {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="absolute top-2 bottom-2 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-slate-900 origin-top" 
+              className="absolute top-2 bottom-2 w-0.5 bg-linear-to-b from-cyan-500 via-blue-500 to-slate-900 origin-top" 
             />
           </div>
 

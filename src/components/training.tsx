@@ -178,10 +178,10 @@ export default function TrainingExperience(): React.JSX.Element {
                     <div className="flex items-center justify-between">
                       <h5 className="text-base font-bold text-slate-200 group-hover/project:text-cyan-400 transition-colors flex items-center gap-1.5">
                         <ChevronRight className="w-4 h-4 text-slate-600 group-hover/project:text-cyan-500 transition-transform group-hover/project:translate-x-0.5" />
-                        KinmelNow — Full-Scale E-Commerce Application
+                        Full-Scale E-Commerce Application
                       </h5>
                       <span className="text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded font-bold">
-                        Cap Stone Build
+                        with JWT Authentication & Redux State Management
                       </span>
                     </div>
                     

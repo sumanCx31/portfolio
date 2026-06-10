@@ -5,7 +5,7 @@ export const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Smooth sequential offset delay for children cards
+      staggerChildren: 0.15,
     }
   }
 };

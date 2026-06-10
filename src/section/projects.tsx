@@ -1,4 +1,4 @@
-import { Bus, MessageSquare, ShoppingBag } from "lucide-react";
+import { Bus, MessageSquare } from "lucide-react";
 interface Project {
   id: string;
   title: string;

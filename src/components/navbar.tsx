@@ -29,7 +29,7 @@ export default function Navbar(): React.JSX.Element {
 
   const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setIsMobileMenuOpen(false); // Close mobile menu if open
+    setIsMobileMenuOpen(false); 
 
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);

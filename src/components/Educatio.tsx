@@ -1,12 +1,10 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { 
-  GraduationCap, 
   Calendar, 
   MapPin, 
   BookOpen, 
   Award, 
-  Terminal,
   Activity,
   Layers
 } from "lucide-react";

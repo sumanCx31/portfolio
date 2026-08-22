@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import certificate from "../assets/mern-certificate.pdf";
 
-// --- MOTION ANIMATION STACK ---
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {

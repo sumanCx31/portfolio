@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
-import profileImage from "../../public/profile.jpg";
 import "./../assets/style/index.css";
 import { ArrowUpRight, Terminal, Sparkles } from "lucide-react";
 import Bio from "../section/bio";
@@ -155,12 +154,12 @@ export default function Hero({ fadeUp, staggerContainer }: HeroProps): React.JSX
             <div className="relative w-full h-full rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 backdrop-blur-md p-2.5 shadow-inner z-10">
               <div className="w-full h-full rounded-lg overflow-hidden relative bg-neutral-950">
                 <img 
-                  src={profileImage} 
-                  alt="Sunil Kumar Sah"
-                  className="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" 
-                />
+  src="../../public/profile.jpg" 
+  alt="Sunil Kumar Sah"
+  className="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" 
+/>
                 {/* Cinematic Vignette Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-neutral-950/20 to-transparent opacity-75" />
+                <div className="absolute inset-0 bg-linear-to-t from-neutral-950/90 via-neutral-950/20 to-transparent opacity-75" />
               </div>
             </div>
 

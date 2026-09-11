@@ -10,7 +10,6 @@ import {
   ChevronRight,
   TrendingUp,
   Boxes,
-  Sparkles,
   FileText,
   BrainCircuit,
   Database,

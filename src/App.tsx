@@ -8,11 +8,11 @@ import Navbar from './components/navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skill';
 import Experience from './components/Experience';
-import Education from './components/Educatio';
 import Contact from './components/Contact';
 import TrainingExperience from './components/training';
 
 import "./assets/style/index.css";
+import EducationSection from './components/Educatio';
 
 // Shared Animation Keyframes Configuration
 const fadeUp: Variants = {
@@ -71,7 +71,7 @@ export default function App(): React.JSX.Element {
         <Skills />
         <Experience />
         <TrainingExperience />
-        <Education />
+        <EducationSection />
         <Contact />
       </main>
 

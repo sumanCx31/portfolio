@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform, type Variants } from "framer-motion";
-import profileImage from "../assets/profile.jpg";
+import profileImage from "../../public/profile.jpg";
 import "./../assets/style/index.css";
 import { ArrowUpRight, Terminal, Sparkles } from "lucide-react";
 import Bio from "../section/bio";

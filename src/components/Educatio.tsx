@@ -1,30 +1,21 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { 
-  Calendar, 
-  MapPin, 
-  BookOpen, 
-  Award, 
-  Activity,
-  Layers
-} from "lucide-react";
+import { GraduationCap, Calendar, MapPin, Building2 } from "lucide-react";
 
-// --- FRAMER MOTION STAGGER CONFIGS ---
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.15 }
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
   }
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, x: -30, scale: 0.98 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
-    x: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 100, damping: 16 }
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
   }
 };
 
@@ -32,185 +23,131 @@ const lineVariants: Variants = {
   hidden: { scaleY: 0 },
   visible: { 
     scaleY: 1,
-    transition: { duration: 1.5, ease: "easeInOut" }
+    transition: { duration: 1.2, ease: "easeInOut" }
   }
 };
 
 interface EducationItem {
   degree: string;
   institution: string;
-  board: string;
   timeline: string;
   location: string;
-  status?: string;
-  metrics: string;
-  details: string[];
-  accentColor: string;
 }
 
 export default function EducationSection(): React.JSX.Element {
-  const academicPath: EducationItem[] = [
+  const education: EducationItem[] = [
     {
       degree: "BSc. Computer Science & Information Technology (CSIT)",
-      institution: "Himalaya College of Engineering",
-      board: "Tribhuvan University",
-      timeline: "2022 — Present",
+      institution: "Himalaya College of Engineering (Tribhuvan University)",
+      timeline: "2023 — Present",
       location: "Chyasal, Lalitpur, Nepal",
-      status: "Currently in 7th Semester",
-      metrics: "CGPA: 3.78 / 4.00 (Current Track)",
-      details: [
-        "Specializing in Advanced Web Architecture, Distributed Systems, and Data Structures.",
-        "Building end-to-end full-stack systems alongside regular engineering lab coursework.",
-        "Active contributor to college tech bootcamps and algorithmic hackathons."
-      ],
-      accentColor: "from-cyan-400 to-blue-500"
     },
     {
-      degree: "+2 Higher Secondary Education (Science Stream)",
-      institution: "Little Star Higher Secondary Boarding School",
-      board: "National Examination Board (NEB)",
-      timeline: "2020 — 2022",
+      degree: "+2 Science Stream",
+      institution: "Little Star Higher Secondary Boarding School (NEB)",
+      timeline: "2021 — 2023",
       location: "Kathmandu, Nepal",
-      metrics: "Top 5% Tier Performance",
-      details: [
-        "Major Modules: Physics, Mathematics, and Computer Science architectures.",
-        "Developed custom standalone core automation utilities using foundational C/C++ tracks."
-      ],
-      accentColor: "from-blue-500 to-indigo-500"
     },
     {
       degree: "Secondary Education Examination (SEE)",
       institution: "Little Star Higher Secondary Boarding School",
-      board: "Government of Nepal",
-      timeline: "Graduated 2020",
-      location: "Kathmandu, Nepal",
-      metrics: "GPA: 3.90 / 4.00",
-      details: [
-        "Graduated with distinction honors, accelerating directly into tech streams.",
-        "Elected Student Tech Group Leader handling basic networking configurations."
-      ],
-      accentColor: "from-indigo-500 to-violet-500"
-    }
+      timeline: "2020",
+      location: "Lahan, Siraha, Nepal",
+    },
   ];
 
   return (
-    <section id="education" className="relative bg-slate-950 text-slate-100 font-sans antialiased px-6 py-28 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section id="education" className="relative bg-[#0a0a0a] text-neutral-100 font-sans antialiased px-6 py-32 overflow-hidden min-h-screen flex flex-col justify-center selection:bg-neutral-200 selection:text-neutral-900">
       
-      {/* Visual Canvas Mesh Background Layer */}
+      {/* Subtle background grid & ambient lighting */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-        <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[150px] animate-pulse pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.02]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-neutral-800/10 via-neutral-700/5 to-transparent rounded-full blur-3xl pointer-events-none" />
       </div>
 
-      <div className="relative z-10 max-w-4xl w-full mx-auto space-y-20">
+      <div className="relative z-10 max-w-3xl w-full mx-auto space-y-16">
         
-        {/* Header Block Section */}
+        {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-left space-y-4"
+          className="space-y-4 text-left"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-cyan-400 font-mono uppercase tracking-wider">
-            <Layers className="w-3.5 h-3.5" /> Academic Node Branches
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-xs font-mono uppercase tracking-widest text-neutral-400">
+            <GraduationCap className="w-3.5 h-3.5 text-neutral-400" /> Academic Background
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-neutral-100">
             Education Profile
           </h2>
-          <p className="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed">
-            Tracking the timeline parameters of my system knowledge base from foundational mathematics down into computer science abstractions.
+          <p className="text-neutral-400 text-sm md:text-base font-light leading-relaxed">
+            Tracing formal academic pathways and foundational milestones in science and computer engineering.
           </p>
         </motion.div>
 
-        {/* Timeline Pipeline Section Grid */}
-        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+        {/* Timeline Layout */}
+        <div className="relative grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           
-          {/* THE STEPPER AXIS LINE (Hidden on Mobile) */}
+          {/* Stepper Axis Line */}
           <div className="hidden md:flex md:col-span-1 justify-center relative">
             <motion.div 
               variants={lineVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="absolute top-2 bottom-2 w-0.5 bg-linear-to-b from-cyan-500 via-blue-500 to-slate-900 origin-top" 
+              className="absolute top-2 bottom-2 w-[1px] bg-neutral-800 origin-top" 
             />
           </div>
 
-          {/* MAIN CHANNELS DATA LIST CARDS */}
+          {/* Main List Container */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-60px" }}
-            className="md:col-span-11 space-y-12 relative"
+            className="md:col-span-11 space-y-6 relative"
           >
-            {academicPath.map((item, idx) => (
+            {education.map((item, idx) => (
               <motion.div 
                 key={idx}
                 variants={cardVariants}
                 className="relative flex flex-col md:flex-row gap-6 group"
               >
-                {/* Stepper Node Pointer Bubble Anchor (Transforms position over center tracking vector line) */}
+                {/* Stepper Node Pointer Anchor */}
                 <div className="hidden md:block absolute -left-[49px] top-6 z-20">
-                  <div className="w-4 h-4 rounded-full bg-slate-950 border-2 border-slate-800 group-hover:border-cyan-400 transition-colors duration-300 flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-cyan-400 transition-colors" />
+                  <div className="w-3.5 h-3.5 rounded-full bg-[#0a0a0a] border border-neutral-700 group-hover:border-neutral-400 transition-colors duration-200 flex items-center justify-center">
+                    <div className="w-1 h-1 rounded-full bg-neutral-600 group-hover:bg-neutral-200 transition-colors" />
                   </div>
                 </div>
 
-                {/* Primary Content Glass Frame Slat */}
-                <div className="w-full p-6 sm:p-8 rounded-2xl border border-slate-900 bg-slate-900/10 backdrop-blur-xl group-hover:border-slate-800/80 transition-all duration-300 shadow-xl relative overflow-hidden text-left">
+                {/* Card Content */}
+                <div className="w-full p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 backdrop-blur-md group-hover:border-neutral-700 transition-all duration-300 shadow-xl relative overflow-hidden text-left">
                   
-                  {/* Subtle top horizontal accent ribbon border */}
-                  <div className={`absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r ${item.accentColor} opacity-40 group-hover:opacity-100 transition-opacity`} />
-                  
-                  {/* Card Header */}
+                  <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-40" />
+
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                    <div className="space-y-1.5">
-                      <h3 className="text-lg sm:text-xl font-bold text-slate-100 tracking-tight leading-snug group-hover:text-cyan-400 transition-colors">
+                    <div className="space-y-2">
+                      <h3 className="text-lg font-normal text-neutral-100 tracking-tight group-hover:text-neutral-200 transition-colors">
                         {item.degree}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-400 font-medium">
-                        <span className="text-slate-200 font-semibold">{item.institution}</span>
-                        <span className="text-slate-600 font-mono">|</span>
-                        <span>{item.board}</span>
-                      </div>
+                      <p className="text-sm font-light text-neutral-400 flex items-center gap-2">
+                        <Building2 className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
+                        <span>{item.institution}</span>
+                      </p>
                     </div>
 
-                    {/* Timeline Tracker Stamp Badge */}
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-950 border border-slate-900 font-mono text-[11px] text-slate-400 font-semibold shrink-0 w-fit">
-                      <Calendar className="w-3.5 h-3.5 text-slate-500" />
+                    {/* Timeline Badge */}
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-[11px] text-neutral-300 shrink-0 w-fit">
+                      <Calendar className="w-3.5 h-3.5 text-neutral-500" />
                       {item.timeline}
                     </div>
                   </div>
 
-                  {/* Operational Tags (Semester Status + Metrics Trackers) */}
-                  <div className="flex flex-wrap gap-2.5 mt-5">
-                    {item.status && (
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-cyan-500/5 border border-cyan-500/20 text-[11px] font-mono font-bold text-cyan-400">
-                        <Activity className="w-3.5 h-3.5 animate-pulse" />
-                        {item.status}
-                      </div>
-                    )}
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-500/5 border border-indigo-500/10 text-[11px] font-mono font-medium text-indigo-400">
-                      <Award className="w-3.5 h-3.5" />
-                      {item.metrics}
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-950 text-[11px] font-mono text-slate-500">
-                      <MapPin className="w-3.5 h-3.5" />
-                      {item.location}
-                    </div>
+                  <div className="flex items-center gap-1.5 mt-5 pt-4 border-t border-neutral-800/80 text-xs font-mono text-neutral-400">
+                    <MapPin className="w-3.5 h-3.5 text-neutral-500" />
+                    <span>{item.location}</span>
                   </div>
-
-                  {/* Bullet Summary Lists block */}
-                  <ul className="mt-5 space-y-2.5 pt-4 border-t border-slate-900/60">
-                    {item.details.map((detail, idx) => (
-                      <li key={idx} className="text-xs sm:text-sm text-slate-400 leading-relaxed flex items-start gap-2.5">
-                        <BookOpen className="w-4 h-4 text-slate-600 mt-0.5 shrink-0" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
 
                 </div>
               </motion.div>

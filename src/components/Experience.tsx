@@ -3,8 +3,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import projectsData from "../section/projects";
 import { 
   FolderGit2, 
-  Layers, 
-  ArrowUpRight 
+  ArrowUpRight,
 } from "lucide-react";
 
 // --- INTERFACES ---
@@ -20,19 +19,18 @@ const staggerGrid: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
 const projectCardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.98 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 80, damping: 16 }
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
   },
-  exit: { opacity: 0, y: 20, scale: 0.95, transition: { duration: 0.2 } }
+  exit: { opacity: 0, y: 10, scale: 0.98, transition: { duration: 0.2 } }
 };
 
 export default function ProjectShowcase(): React.JSX.Element {
@@ -40,35 +38,31 @@ export default function ProjectShowcase(): React.JSX.Element {
 
   const filteredProjects = activeFilter === "all" 
     ? projectsData 
-    : projectsData.filter(proj => proj.category === activeFilter);
+    : projectsData.filter((proj: any) => proj.category === activeFilter);
 
   return (
-    <section id="projects" className="relative bg-slate-950 text-slate-100 font-sans antialiased px-6 py-28 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section id="projects" className="relative bg-[#0a0a0a] text-neutral-100 font-sans antialiased px-6 py-28 overflow-hidden min-h-screen flex flex-col justify-center">
       
-      {/* Structural Blueprint Mesh Canvas Background */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-size-[4rem_4rem] mask-[radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-blue-500/5 rounded-full blur-[150px] animate-pulse pointer-events-none" />
-      </div>
-
       <div className="relative z-10 max-w-6xl w-full mx-auto space-y-12">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-900 pb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-neutral-800/80 pb-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6 }}
             className="text-left space-y-3 max-w-xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-indigo-400 uppercase tracking-wider">
-              <FolderGit2 className="w-3.5 h-3.5" /> Case Studies
+            <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-neutral-400">
+              <span className="w-6 h-[1px] bg-neutral-600" />
+              <span>Case Studies</span>
+              <span className="w-6 h-[1px] bg-neutral-600" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-none">
+            <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-neutral-100">
               Production Builds
             </h2>
-            <p className="text-slate-400 text-sm md:text-base leading-relaxed">
+            <p className="text-neutral-400 text-sm sm:text-base leading-relaxed font-light">
               A curated directory of full-stack systems built around concrete data flows, real-time message streams, and transactional integrity.
             </p>
           </motion.div>
@@ -79,20 +73,20 @@ export default function ProjectShowcase(): React.JSX.Element {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-wrap gap-1.5 p-1.5 bg-slate-900/60 border border-slate-800/80 backdrop-blur-md rounded-xl w-fit"
+            className="flex flex-wrap gap-1 p-1 bg-neutral-900 border border-neutral-800 rounded-lg w-fit"
           >
             {filterCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
-                className={`relative px-4 py-2 rounded-lg text-xs font-bold tracking-wide transition-all duration-300 ${
-                  activeFilter === cat.id ? "text-slate-950" : "text-slate-400 hover:text-slate-200"
+                className={`relative px-3 py-1.5 rounded-md text-xs font-medium tracking-wide transition-colors ${
+                  activeFilter === cat.id ? "text-neutral-950" : "text-neutral-400 hover:text-neutral-200"
                 }`}
               >
                 {activeFilter === cat.id && (
                   <motion.div 
                     layoutId="activeFilterTab"
-                    className="absolute inset-0 bg-linear-to-r from-cyan-400 to-blue-500 rounded-lg z-0"
+                    className="absolute inset-0 bg-neutral-100 rounded-md z-0"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -112,7 +106,7 @@ export default function ProjectShowcase(): React.JSX.Element {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project: any) => (
               <motion.div
                 layout
                 key={project.id}
@@ -120,81 +114,68 @@ export default function ProjectShowcase(): React.JSX.Element {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                whileHover={{ 
-                  y: -6,
-                  borderColor: "rgba(56, 189, 248, 0.3)",
-                }}
-                className="group relative flex flex-col justify-between h-full rounded-2xl border border-slate-900 bg-slate-900/20 backdrop-blur-xl overflow-hidden transition-colors duration-300 shadow-xl shadow-slate-950/40"
+                whileHover={{ y: -4 }}
+                className="group relative flex flex-col justify-between h-full rounded-xl border border-neutral-800 bg-neutral-900/30 hover:border-neutral-700 transition-all duration-200 shadow-xl overflow-hidden"
               >
-                {/* Micro Ambient Glow Drop backdrop */}
-                <div className={`absolute inset-0 bg-linear-to-b ${project.bgGradient} opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0`} />
-
-                {/* Top Interactive Blueprint Box Cover (Replaces raw screen mockups) */}
+                {/* Top Interactive Blueprint Box Cover */}
                 <div className="p-6 pb-0 relative z-10">
-                  <div className="w-full h-40 rounded-xl bg-slate-950/80 border border-slate-900/80 flex flex-col justify-center items-center relative overflow-hidden group-hover:border-slate-800/60 transition-colors duration-300">
-                    {/* Abstract grid lines inside the thumbnail box */}
-                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-size-[1rem_1rem] opacity-10" />
-                    
-                    {/* Floating Component Wireframe Accents */}
-                    <div className="w-4/5 space-y-2 opacity-20 group-hover:opacity-40 group-hover:scale-[1.02] transition-all duration-500 ease-out">
-                      <div className="h-2 w-1/4 bg-slate-700 rounded" />
-                      <div className="h-10 w-full bg-slate-900 border border-slate-800 rounded-md" />
-                      <div className="h-6 w-2/3 bg-slate-900 border border-slate-800 rounded-md" />
-                    </div>
-
-                    <div className="absolute p-3 bg-slate-900/90 border border-slate-800 rounded-xl shadow-xl text-slate-400 group-hover:text-cyan-400 group-hover:scale-110 group-hover:border-cyan-500/20 transition-all duration-500 ease-out">
-                      {project.icon}
+                  <div className="w-full h-36 rounded-lg bg-neutral-950 border border-neutral-800/80 flex flex-col justify-center items-center relative overflow-hidden group-hover:border-neutral-700 transition-colors">
+                    <div className="absolute p-2.5 bg-neutral-900 border border-neutral-800 rounded-lg text-neutral-300 group-hover:text-neutral-100 transition-colors">
+                      {project.icon || <FolderGit2 className="w-4 h-4" />}
                     </div>
                   </div>
                 </div>
 
                 {/* Content Block Details */}
-                <div className="p-6 space-y-4 relative z-10 grow flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold tracking-tight text-slate-100 group-hover:text-white transition-colors">
+                <div className="p-6 space-y-3 relative z-10 grow flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <h3 className="text-base font-medium text-neutral-100 group-hover:text-white transition-colors tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-xs md:text-sm text-slate-400 font-medium leading-relaxed">
+                    <p className="text-xs text-neutral-400 font-light leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
-                  {/* Optimization/Metric Indicator Badge */}
-                  <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-md bg-emerald-500/5 border border-emerald-500/10 text-[11px] font-semibold text-emerald-400/90">
-                    <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-                    {project.metric}
-                  </div>
+                  {project.metric && (
+                    <div className="inline-flex items-center gap-1.5 w-fit px-2.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-[11px] font-mono text-neutral-300">
+                      <span className="w-1 h-1 rounded-full bg-neutral-400" />
+                      {project.metric}
+                    </div>
+                  )}
                 </div>
 
                 {/* Interactive Card Action Footer */}
-                <div className="p-6 pt-0 border-t border-slate-900/60 mt-2 relative z-10 space-y-4">
-                  {/* Badges Flow Grid */}
+                <div className="p-6 pt-0 border-t border-neutral-800/60 mt-2 relative z-10 space-y-4">
                   <div className="flex flex-wrap gap-1.5 pt-4">
-                    {project.tech.map((badge) => (
+                    {project.tech.map((badge: string) => (
                       <span 
                         key={badge} 
-                        className="text-[10px] font-mono font-medium tracking-wide bg-slate-950/80 text-slate-400 px-2 py-0.5 border border-slate-900 rounded"
+                        className="text-[10px] font-mono font-medium tracking-wide bg-neutral-950 text-neutral-400 px-2 py-0.5 border border-neutral-800 rounded"
                       >
                         {badge}
                       </span>
                     ))}
                   </div>
 
-                  {/* Actions Link Cluster */}
                   <div className="flex items-center justify-between gap-3 pt-1">
                     <a 
                       href={project.github} 
-                      className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-400 hover:text-slate-200 border border-slate-800 bg-slate-950/40 rounded-lg transition-colors"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-neutral-400 hover:text-neutral-200 border border-neutral-800 bg-neutral-950 rounded-md transition-colors"
                       title="Inspect Architecture Source"
                     >
-                      {/* <Github className="w-3.5 h-3.5" /> Source Code */}
+                      {/* <Github className="w-3.5 h-3.5" /> Source */}
                     </a>
                     <a 
                       href={project.demo} 
-                      className="inline-flex items-center gap-1 px-3 py-2 text-xs font-bold text-slate-950 bg-linear-to-r from-cyan-400 to-blue-500 rounded-lg hover:opacity-95 shadow-md shadow-cyan-500/5 transition-opacity"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-neutral-950 bg-neutral-100 hover:bg-neutral-200 rounded-md transition-colors"
                       title="Launch Web Infrastructure"
                     >
-                      Deploy App <ArrowUpRight className="w-3.5 h-3.5" />
+                      Demo <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
                 </div>
@@ -202,16 +183,6 @@ export default function ProjectShowcase(): React.JSX.Element {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
-
-        {/* Core Architecture Footer Tag */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="pt-6 flex justify-center text-[10px] font-mono tracking-widest text-slate-600 gap-2 items-center"
-        >
-          <Layers className="w-3 h-3 text-slate-600" /> DEPLOYED ARTIFACT RECORDS COMPILING SUCCESSFULLY
         </motion.div>
 
       </div>

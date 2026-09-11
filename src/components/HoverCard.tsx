@@ -1,7 +1,6 @@
-import React, {type  ReactNode } from 'react';
-import { motion,type MotionProps } from 'framer-motion';
+import React, { type ReactNode } from "react";
+import { motion, type MotionProps } from "framer-motion";
 
-// Merge custom props with standard Framer Motion div props
 interface HoverCardProps extends MotionProps {
   children: ReactNode;
   className?: string;
@@ -10,15 +9,13 @@ interface HoverCardProps extends MotionProps {
 export default function HoverCard({ children, className = "", ...props }: HoverCardProps): React.JSX.Element {
   return (
     <motion.div
-      {...props} // Spreads parent variants (like fadeUp) smoothly
+      {...props}
       whileHover={{ 
-        y: -8,
-        scale: 1.02,
-        borderColor: "rgba(34, 211, 238, 0.4)",
-        boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.7)"
+        y: -3,
+        borderColor: "rgb(82, 82, 82)",
       }}
-      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-      className={`bg-slate-900/40 backdrop-blur-md border border-slate-800/80 rounded-2xl p-6 transition-colors duration-300 ${className}`}
+      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+      className={`bg-neutral-900/30 border border-neutral-800 rounded-xl p-6 transition-colors duration-200 ${className}`}
     >
       {children}
     </motion.div>

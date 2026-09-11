@@ -10,17 +10,17 @@ import Skills from './components/Skill';
 import Experience from './components/Experience';
 import Education from './components/Educatio';
 import Contact from './components/Contact';
+import TrainingExperience from './components/training';
 
 import "./assets/style/index.css";
-import TrainingExperience from './components/training';
 
 // Shared Animation Keyframes Configuration
 const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 24 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } 
   }
 };
 
@@ -28,7 +28,7 @@ const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12 }
+    transition: { staggerChildren: 0.1 }
   }
 };
 
@@ -47,35 +47,36 @@ export default function App(): React.JSX.Element {
     });
 
     // Synchronize Framer Motion & RAF loop with Lenis calculations
+    let animationFrameId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      animationFrameId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animationFrameId = requestAnimationFrame(raf);
 
-    // Clean up on unmount
     return () => {
+      cancelAnimationFrame(animationFrameId);
       lenis.destroy();
     };
   }, []);
 
   return (
-    <div className="text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen relative antialiased bg-slate-950">
+    <div className="text-neutral-200 font-sans selection:bg-neutral-200 selection:text-neutral-900 min-h-screen relative antialiased bg-[#0a0a0a]">
       <BackgroundGrid />
       <Navbar />
 
-      <main className="max-w-7xl mx-auto px-6 relative z-10">
+      <main className="max-w-6xl mx-auto px-6 relative z-10">
         <Hero fadeUp={fadeUp} staggerContainer={staggerContainer} />
         <Skills />
         <Experience />
-        <TrainingExperience/>
+        <TrainingExperience />
         <Education />
         <Contact />
       </main>
 
-      <footer className="py-12 border-t border-slate-900/50 text-center text-xs text-slate-600 tracking-wider">
-        <p>&copy; 2026 SUNIL KUMAR SAH. DEVELOPED VIA REACT + TSX + MOTION.</p>
+      <footer className="py-16 border-t border-neutral-900 text-center text-xs text-neutral-500 tracking-widest uppercase">
+        <p>&copy; 2026 Sunil Kumar Sah. Crafted with React, TypeScript & Motion.</p>
       </footer>
     </div>
   );

@@ -11,7 +11,10 @@ import {
   TrendingUp,
   Boxes,
   Sparkles,
-  FileText
+  FileText,
+  BrainCircuit,
+  Database,
+  BarChart3
 } from "lucide-react";
 import certificate from "../assets/mern-certificate.pdf";
 
@@ -49,23 +52,33 @@ interface TechBadge {
 export default function TrainingExperience(): React.JSX.Element {
   
   const mernStackBadges: TechBadge[] = [
-    { name: "React.js", style: "bg-cyan-500/10 border-cyan-500/20 text-cyan-400" },
-    { name: "Node.js", style: "bg-emerald-500/10 border-emerald-500/20 text-emerald-400" },
-    { name: "Express.js", style: "bg-slate-500/10 border-slate-500/20 text-slate-300" },
-    { name: "MongoDB", style: "bg-green-500/10 border-green-500/20 text-green-400" },
-    { name: "Redux Toolkit", style: "bg-purple-500/10 border-purple-500/20 text-purple-400" },
-    { name: "JWT Auth", style: "bg-amber-500/10 border-amber-500/20 text-amber-400" },
-    { name: "REST APIs", style: "bg-teal-500/10 border-teal-500/20 text-teal-400" },
-    { name: "Tailwind CSS", style: "bg-sky-500/10 border-sky-500/20 text-sky-400" }
+    { name: "React.js", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Node.js", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Express.js", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "MongoDB", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Redux Toolkit", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "JWT Auth", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "REST APIs", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Tailwind CSS", style: "bg-neutral-900 border-neutral-800 text-neutral-300" }
+  ];
+
+  const aiMlBadges: TechBadge[] = [
+    { name: "Python", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "NumPy", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Pandas", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Scikit-learn", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Machine Learning", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Data Analysis", style: "bg-neutral-900 border-neutral-800 text-neutral-300" },
+    { name: "Matplotlib", style: "bg-neutral-900 border-neutral-800 text-neutral-300" }
   ];
 
   return (
-    <section id="experience" className="relative bg-slate-950 text-slate-100 font-sans antialiased px-6 py-28 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section id="experience" className="relative bg-[#0a0a0a] text-neutral-100 font-sans antialiased px-6 py-32 overflow-hidden min-h-screen flex flex-col justify-center selection:bg-neutral-200 selection:text-neutral-900">
       
-      {/* Dynamic Ambiance Backdrops */}
+      {/* Subtle background grid & ambient lighting */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-40" />
-        <div className="absolute top-1/3 left-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-cyan-500/5 to-transparent rounded-full blur-[160px] animate-pulse pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.02]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-neutral-800/10 via-neutral-700/5 to-transparent rounded-full blur-3xl pointer-events-none" />
       </div>
 
       <div className="relative z-10 max-w-4xl w-full mx-auto space-y-16">
@@ -78,32 +91,32 @@ export default function TrainingExperience(): React.JSX.Element {
           transition={{ duration: 0.6 }}
           className="text-left space-y-4"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-semibold text-cyan-400 font-mono uppercase tracking-wider">
-            <Terminal className="w-3.5 h-3.5 text-cyan-400" /> Engineering_Labs: production_readiness
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-md bg-neutral-900 border border-neutral-800 text-xs font-mono uppercase tracking-widest text-neutral-400">
+            <Terminal className="w-3.5 h-3.5 text-neutral-400" /> Engineering_Labs: production_readiness
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-none bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-neutral-100">
             Training & Experience
           </h2>
-          <p className="text-slate-400 text-sm md:text-base max-w-xl leading-relaxed">
-            Supercharging raw logic into production-grade systems through rigorous, hands-on full-stack development.
+          <p className="text-neutral-400 text-sm md:text-base max-w-xl font-light leading-relaxed">
+            Building production-ready software systems while developing practical expertise in AI, machine learning, data analysis, and full-stack development.
           </p>
         </motion.div>
 
         {/* Timeline Layout */}
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* THE PROGRESSION VERTICAL BAR VECTOR */}
+          {/* Progression Vertical Bar */}
           <div className="hidden lg:flex lg:col-span-1 justify-center relative">
             <motion.div 
               variants={progressLineVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="absolute top-3 bottom-3 w-[2px] bg-gradient-to-b from-cyan-500 via-indigo-600 to-transparent origin-top" 
+              className="absolute top-3 bottom-3 w-[1px] bg-neutral-800 origin-top" 
             />
           </div>
 
-          {/* MAIN COLUMN */}
+          {/* Main Column */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
@@ -113,52 +126,51 @@ export default function TrainingExperience(): React.JSX.Element {
           >
             <motion.div 
               variants={frameVariants}
-              className="relative p-6 sm:p-8 rounded-2xl border border-slate-900 bg-slate-900/10 backdrop-blur-xl hover:border-slate-800/80 transition-all duration-300 shadow-2xl group overflow-hidden"
+              className="relative p-6 sm:p-8 rounded-2xl border border-neutral-800 bg-neutral-900/40 backdrop-blur-md hover:border-neutral-700 transition-all duration-300 shadow-2xl group overflow-hidden"
             >
-              {/* Top Accent Tech Bar Glow */}
-              <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 opacity-60 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-neutral-600 to-transparent opacity-60" />
               
-              <Code2 className="absolute right-6 top-8 w-32 h-32 text-slate-900/10 pointer-events-none group-hover:text-cyan-500/5 group-hover:rotate-6 transition-all duration-500" />
+              <Code2 className="absolute right-6 top-8 w-32 h-32 text-neutral-900/40 pointer-events-none group-hover:text-neutral-800/30 group-hover:rotate-6 transition-all duration-500" />
 
               {/* Node Card Header */}
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-slate-900/60 relative z-10">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 pb-6 border-b border-neutral-800/80 relative z-10">
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <div className="px-2.5 py-1 text-[10px] font-mono font-black rounded-md border bg-slate-950 border-slate-900 text-cyan-400 tracking-wider uppercase">
+                    <div className="px-2.5 py-1 text-[10px] font-mono font-medium rounded border bg-neutral-900 border-neutral-800 text-neutral-300 tracking-wider uppercase">
                       Hands-on Experience
                     </div>
-                    <div className="inline-flex items-center gap-1 font-mono text-[11px] text-indigo-400 font-bold">
-                      <TrendingUp className="w-3.5 h-3.5" /> Full-Stack Curriculum
+                    <div className="inline-flex items-center gap-1 font-mono text-[11px] text-neutral-400">
+                      <TrendingUp className="w-3.5 h-3.5" /> Full-Stack + AI/ML
                     </div>
                   </div>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-100 tracking-tight group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-normal text-neutral-100 tracking-tight group-hover:text-neutral-200 transition-colors">
                     MERN Stack Developer Training
                   </h3>
-                  <p className="text-base font-bold text-slate-300">
+                  <p className="text-sm font-mono text-neutral-400">
                     Broadway Infosys
                   </p>
                 </div>
 
                 <div className="flex flex-wrap sm:flex-col items-start gap-2 sm:items-end shrink-0">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-950 border border-slate-900 font-mono text-[11px] text-slate-400 font-semibold">
-                    <Calendar className="w-3.5 h-3.5 text-slate-500" /> Completed
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-[11px] text-neutral-400">
+                    <Calendar className="w-3.5 h-3.5 text-neutral-500" /> Completed
                   </div>
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-[10px] font-mono text-slate-500">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-[10px] font-mono text-neutral-500">
                     <MapPin className="w-3 h-3" /> Kathmandu, Nepal
                   </div>
                 </div>
               </div>
 
-              {/* SKILLS BADGE HARDWARE MATRIX */}
+              {/* Skills Badge Hardware Matrix */}
               <div className="py-6 space-y-3 relative z-10">
-                <h4 className="text-[10px] font-mono font-black uppercase text-slate-500 tracking-widest flex items-center gap-1.5">
-                  <Boxes className="w-3.5 h-3.5" /> Core Technologies Applied
+                <h4 className="text-[10px] font-mono font-medium uppercase text-neutral-500 tracking-widest flex items-center gap-1.5">
+                  <Boxes className="w-3.5 h-3.5" /> Core Technologies & Skills
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {mernStackBadges.map((badge, idx) => (
                     <span 
                       key={idx} 
-                      className={`px-2.5 py-1 rounded-md border text-xs font-mono font-semibold transition-all hover:scale-105 duration-200 ${badge.style}`}
+                      className={`px-3 py-1 rounded-md border text-xs font-mono font-normal transition-all hover:scale-102 duration-200 ${badge.style}`}
                     >
                       {badge.name}
                     </span>
@@ -166,32 +178,82 @@ export default function TrainingExperience(): React.JSX.Element {
                 </div>
               </div>
 
-              {/* CORE E-COMMERCE LAB IMPLEMENTATION */}
-              <div className="pt-6 border-t border-slate-900/60 space-y-4 relative z-10">
-                <h4 className="text-[10px] font-mono font-black uppercase text-slate-500 tracking-widest flex items-center gap-1.5">
+              {/* AI/ML Training Section */}
+              <div className="pt-6 border-t border-neutral-800/80 space-y-4 relative z-10">
+                <h4 className="text-[10px] font-mono font-medium uppercase text-neutral-500 tracking-widest flex items-center gap-1.5">
+                  <BrainCircuit className="w-3.5 h-3.5" /> Current AI/ML Development
+                </h4>
+
+                <div className="p-5 rounded-xl border border-neutral-800 bg-neutral-950/40 hover:border-neutral-700 transition-all group/aiml shadow-inner">
+                  <div className="space-y-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                      <h5 className="text-sm font-medium text-neutral-200 group-hover/aiml:text-neutral-100 transition-colors flex items-center gap-1.5">
+                        <BrainCircuit className="w-4 h-4 text-neutral-400" />
+                        AI/ML Training & Projects
+                      </h5>
+                      <span className="text-[10px] font-mono bg-neutral-900 text-neutral-300 border border-neutral-800 px-2.5 py-0.5 rounded">
+                        Active Focus
+                      </span>
+                    </div>
+
+                    <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                      Expanding expertise into Python, machine learning, and data science. Working through data preprocessing, exploratory data analysis, feature engineering, model training, and performance evaluation to build intelligent, data-driven applications.
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {aiMlBadges.map((badge, idx) => (
+                        <span
+                          key={idx}
+                          className={`px-2.5 py-1 rounded-md border text-xs font-mono font-normal transition-all hover:scale-102 duration-200 ${badge.style}`}
+                        >
+                          {badge.name}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+                      <div className="flex items-center gap-2 rounded-lg bg-neutral-950 border border-neutral-800/80 px-3 py-2">
+                        <Database className="w-3.5 h-3.5 text-neutral-400" />
+                        <span className="text-[10px] font-mono text-neutral-400">Data Preprocessing</span>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg bg-neutral-950 border border-neutral-800/80 px-3 py-2">
+                        <BarChart3 className="w-3.5 h-3.5 text-neutral-400" />
+                        <span className="text-[10px] font-mono text-neutral-400">EDA & Visualization</span>
+                      </div>
+                      <div className="flex items-center gap-2 rounded-lg bg-neutral-950 border border-neutral-800/80 px-3 py-2">
+                        <BrainCircuit className="w-3.5 h-3.5 text-neutral-400" />
+                        <span className="text-[10px] font-mono text-neutral-400">Model Evaluation</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Production Build Highlight */}
+              <div className="pt-6 border-t border-neutral-800/80 space-y-4 relative z-10">
+                <h4 className="text-[10px] font-mono font-medium uppercase text-neutral-500 tracking-widest flex items-center gap-1.5">
                   <FolderGit2 className="w-3.5 h-3.5" /> Production Build Highlight
                 </h4>
                 
-                <div className="p-5 rounded-xl border border-slate-900/80 bg-slate-950/40 hover:border-slate-800 transition-all group/project shadow-inner">
+                <div className="p-5 rounded-xl border border-neutral-800 bg-neutral-950/40 hover:border-neutral-700 transition-all group/project shadow-inner">
                   <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <h5 className="text-base font-bold text-slate-200 group-hover/project:text-cyan-400 transition-colors flex items-center gap-1.5">
-                        <ChevronRight className="w-4 h-4 text-slate-600 group-hover/project:text-cyan-500 transition-transform group-hover/project:translate-x-0.5" />
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                      <h5 className="text-sm font-medium text-neutral-200 group-hover/project:text-neutral-100 transition-colors flex items-center gap-1.5">
+                        <ChevronRight className="w-4 h-4 text-neutral-500 group-hover/project:text-neutral-300 transition-transform group-hover/project:translate-x-0.5" />
                         Full-Scale E-Commerce Application
                       </h5>
-                      <span className="text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 py-0.5 rounded font-bold">
-                        with JWT Authentication & Redux State Management
+                      <span className="text-[10px] font-mono text-neutral-400 bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded">
+                        JWT Auth & Redux Toolkit
                       </span>
                     </div>
                     
-                    <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                      Gained rigorous, industry-grade hands-on experience by architecting an end-to-end e-commerce store. 
-                      Engineered secure stateless token routing architectures (**JWT**), structured **RESTful API endpoints** via Express, built atomic **Redux Toolkit** pipelines, and configured absolute database schemas in **MongoDB** for seamless CRUD management routines.
+                    <p className="text-sm text-neutral-400 leading-relaxed font-light">
+                      Architected an end-to-end e-commerce store with secure stateless token routing architectures (JWT), structured RESTful API endpoints via Express, atomic Redux Toolkit state pipelines, and robust database schemas in MongoDB for seamless CRUD operations.
                     </p>
 
                     <div className="flex flex-wrap gap-1.5 pt-2">
                       {["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "JWT Auth"].map((t, i) => (
-                        <span key={i} className="text-[10px] font-mono font-bold bg-slate-900 border border-slate-800/60 px-2 py-0.5 rounded text-slate-400">
+                        <span key={i} className="text-[10px] font-mono bg-neutral-900 border border-neutral-800 px-2 py-0.5 rounded text-neutral-400">
                           {t}
                         </span>
                       ))}
@@ -200,33 +262,28 @@ export default function TrainingExperience(): React.JSX.Element {
                 </div>
               </div>
 
-              {/* SYSTEM VERIFICATION FOOTER */}
-              <div className="mt-8 pt-6 border-t border-slate-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
-                <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-cyan-400">
+              {/* System Verification Footer */}
+              <div className="mt-8 pt-6 border-t border-neutral-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 relative z-10">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-neutral-300">
                     <Award className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-200">MERN Stack Certification Verified</p>
-                    <p className="text-[10px] font-mono text-slate-500">Broadway Infosys // Credential Active</p>
+                    <p className="text-xs font-medium text-neutral-200">MERN Stack Certification Verified</p>
+                    <p className="text-[10px] font-mono text-neutral-500">Broadway Infosys // Credential Active</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
                   <a 
                     href={certificate}
-                    target="_bin"
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-xs font-bold text-slate-950 transition-all duration-200 active:scale-95 shadow-lg shadow-cyan-500/10"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-neutral-100 hover:bg-white text-xs font-medium text-neutral-950 transition-all duration-200 active:scale-95 shadow-sm"
                   >
                     <FileText className="w-3.5 h-3.5" />
                     View Certificate
                   </a>
-
-                  <div className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-950 border border-slate-900 text-[10px] font-mono font-bold text-slate-400">
-                    <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                    HANDS-ON CORE COMPLETE
-                  </div>
                 </div>
               </div>
 

@@ -9,7 +9,7 @@ import {
 import "./../assets/style/index.css";
 import { ArrowUpRight, Terminal, Sparkles } from "lucide-react";
 import Bio from "../section/bio";
-import suman from "./../assets/profile.jpg";
+
 
 interface HeroProps {
   fadeUp: Variants;
@@ -38,7 +38,7 @@ export default function Hero({
   staggerContainer,
 }: HeroProps): React.JSX.Element {
   const cardRef = useRef<HTMLDivElement>(null);
-
+  const image = "https://res.cloudinary.com/dsr5veqon/image/upload/v1789360483/api-busticket-1/user/uwu8fepruclhgmpmviup.jpg"
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -67,7 +67,7 @@ export default function Hero({
     >
       {/* Subtle atmospheric background glow & fine grid */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-tr from-neutral-800/10 via-neutral-700/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-linear-to-tr from-neutral-800/10 via-neutral-700/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl w-full px-6 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* TYPOGRAPHY CONTENT COLUMN */}
@@ -83,9 +83,9 @@ export default function Hero({
             variants={fadeUp}
             className="flex items-center gap-3 text-xs tracking-widest uppercase text-neutral-400 font-mono"
           >
-            <span className="w-8 h-[1px] bg-neutral-700" />
+            {/* <span className="w-8 h-[1px] bg-neutral-700" /> */}
             <span className="flex items-center gap-1.5">
-              <Sparkles className="w-3 h-3 text-neutral-400" /> AI/ML Engineer &
+             AI/ML Engineer &
               Full-Stack Developer
             </span>
           </motion.div>
@@ -178,7 +178,7 @@ export default function Hero({
             <div className="relative w-full h-full rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900/60 backdrop-blur-md p-2.5 shadow-inner z-10">
               <div className="w-full h-full rounded-lg overflow-hidden relative bg-neutral-950">
                 <img
-                  src={suman}
+                  src={image}
                   alt="Sunil Kumar Sah"
                   className="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />

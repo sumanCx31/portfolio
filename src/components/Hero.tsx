@@ -7,7 +7,7 @@ import {
   type Variants,
 } from "framer-motion";
 import "./../assets/style/index.css";
-import { ArrowUpRight, Terminal, Sparkles } from "lucide-react";
+import { ArrowUpRight, Terminal } from "lucide-react";
 import Bio from "../section/bio";
 
 
